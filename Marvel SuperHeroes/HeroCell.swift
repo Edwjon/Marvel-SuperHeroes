@@ -10,12 +10,14 @@ import UIKit
 
 class HeroCell: UICollectionViewCell {
     
+    //MARK: - Imagen del Héroe
     let HeroImage: UIImageView = {
         let imagen = UIImageView()
         imagen.layer.cornerRadius = 20
         return imagen
     }()
     
+    //MARK: - Etiqueta del nombre del Héroe
     let heroName: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -24,6 +26,7 @@ class HeroCell: UICollectionViewCell {
         return label
     }()
     
+    //MARK: - Método init
     override init(frame: CGRect) {
         super.init(frame: frame)
         

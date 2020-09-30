@@ -10,6 +10,7 @@ import UIKit
 
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
+    //MARK: - Array de los Héroes
     var heroes = [HeroesDetail]() {
         didSet {
             DispatchQueue.main.async {
@@ -18,6 +19,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         }
     }
     
+    //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,6 +32,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         collectionView.backgroundColor = .white
         collectionView.register(HeroCell.self, forCellWithReuseIdentifier: "cellId")
         
+        //Configuración del Layout del collectionView
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -39,7 +42,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         collectionView.collectionViewLayout = layout
     }
     
-    
+    //MARK: - Llenar el array de los Héroes con la data tomada de la API
     func getHeroes() {
         let heroesRequest = HeroesRequest()
         heroesRequest.getHeroes { [weak self] result in
@@ -51,7 +54,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         }
     }
     
-    
+    //MARK: - Métodos CollectionView
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return heroes.count
     }

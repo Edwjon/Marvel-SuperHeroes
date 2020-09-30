@@ -28,7 +28,7 @@ struct HeroesImage: Decodable {
 }
 
 
-
+//MARK: - Request de la API
 struct HeroesRequest {
     
     let url = URL(string: "https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=43fe613b9404a4f9aecadb58fa38e9b2&hash=9e71e6d26e89c106d0e8f56fc5d90ca4")
